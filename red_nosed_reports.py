@@ -48,11 +48,29 @@ def is_subset(needle: range, hay: range):
 def is_safe(l: list[int]):
     return list_incr_type(l) != IncrType.MIXED \
         and is_subset(get_gap_range(l), range(1, 4))
-        
+
+def generous_lists(l: list[int]):
+    ret = [] 
+    ret.append(l)
+    for i in range(len(l)):
+        cl = l.copy() 
+        cl.pop(i) 
+        ret.append(cl)
+    return ret  
 
 if __name__ == '__main__':
+    # part1 
     il = get_input_list()
     safe_cnt = 0
     for l in il:
         if is_safe(l): safe_cnt +=1 
     print(safe_cnt)
+
+    # part2
+    generous_safe_cnt = 0 
+    for l in il:
+        for gl in generous_lists(l): 
+            if is_safe(gl):
+                generous_safe_cnt += 1
+                break 
+    print(generous_safe_cnt)
