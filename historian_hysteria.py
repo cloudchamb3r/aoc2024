@@ -22,7 +22,6 @@ def get_input_list():
 if __name__ == '__main__':
     # get as np array
     il = np.array(get_input_list() )
-    # transpose
     til = np.transpose(il)
 
     # make sort
@@ -30,8 +29,13 @@ if __name__ == '__main__':
     rhs = sorted(til[1])
     assert(len(lhs) == len(rhs))
 
-    # get distance
     acc = 0 
     for i in range(len(lhs)):
         acc += abs(lhs[i] - rhs[i])
     print(acc)
+
+    # part2 
+    simscore = 0
+    for e in til[0]: 
+        simscore += e * list(til[1]).count(e)
+    print(simscore)
