@@ -53,8 +53,6 @@ if __name__ == '__main__':
 
 
     # part2
-
-    
     __compose_cnt = defaultdict(lambda: None) 
     def get_composable_count(c: str): 
         if c == '': return 1 
@@ -72,8 +70,3 @@ if __name__ == '__main__':
         acc += get_composable_count(c)
 
     print(acc)
-
-    # [b, g, bg]
-    # bgg => 
-    # b gg
-    # bg g 
